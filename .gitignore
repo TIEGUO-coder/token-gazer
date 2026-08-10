@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.cargo-home/
+.pnpm-store/
+src-tauri/target/
+
+.DS_Store
