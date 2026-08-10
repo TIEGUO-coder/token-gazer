@@ -6,7 +6,7 @@ import { paybackCopy } from "../lib/paybackCopy";
 import { bestIndividualPaybackRatio } from "../lib/paybackSelection";
 import { moodFromPaybackRatio } from "../lib/petState";
 import type { UsageSummary } from "../types";
-import petCat from "../assets/pet-cat.png";
+import petCat from "../assets/pet-cat-complete-v2-cleaner.png";
 
 type Props = {
   summaries: UsageSummary[];
