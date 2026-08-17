@@ -17,11 +17,11 @@ People do not always know what to build, sell, write, package, or test next.
 Opportunity Pet turns that vague question into a companion workflow:
 
 ```text
-import my pet
--> create my desktop assistant
--> discover a money-making opportunity
--> review the plan
--> keep pushing the project with an execution system
+desktop pet scouts for opportunities
+-> owner approves or asks it to keep scouting
+-> Grill-me breaks the approved idea into requirements
+-> MAH turns the scope into a route map
+-> agents ship, learn from feedback, and keep evolving the project
 ```
 
 The pet is the emotional interface.  
@@ -32,10 +32,10 @@ The execution layer turns the idea into next actions.
 
 1. The user imports their own pet.
 2. The pet appears as a desktop assistant.
-3. The pet surfaces one practical money-making opportunity.
-4. The user clicks `查看计划`.
-5. The app opens a simple plan with scope, steps, and next action.
-6. The plan can later be handed to MAH as a route map.
+3. The pet signals that it found a promising lead.
+4. The user can approve it as actionable or ask the pet to keep scouting.
+5. Approved ideas go to Grill-me for requirement breakdown.
+6. The result can later be handed to MAH as a route map.
 
 ## Why This Leads To MAH
 
@@ -59,7 +59,10 @@ That makes MAH necessary. The pet creates desire and selection. MAH turns the se
 - Desktop pet visual using a custom Tieguo-style asset.
 - Entry for importing the user's own pet.
 - Opportunity card inside the pet assistant.
-- `查看计划` button.
+- Clear "found a lead" signal.
+- Action approval button.
+- "Keep scouting" rejection button.
+- Grill-me handoff button.
 - Plan panel showing how the opportunity can be decomposed.
 - Example MAH route map in `examples/mah-routemap.md`.
 

@@ -1,17 +1,19 @@
 import { ArrowRight, CalendarClock, X } from "lucide-react";
-import { opportunityDemo } from "../lib/opportunityDemo";
+import type { OpportunityDemo } from "../lib/opportunityDemo";
 
 type Props = {
+  opportunity: OpportunityDemo;
+  isActionable: boolean;
   onClose: () => void;
 };
 
-export function PlanPanel({ onClose }: Props) {
+export function PlanPanel({ opportunity, isActionable, onClose }: Props) {
   return (
     <section className="plan-panel" aria-label="Profit Pet plan">
       <header>
         <div>
           <span>Profit Pet plan</span>
-          <strong>{opportunityDemo.title}</strong>
+          <strong>{opportunity.title}</strong>
         </div>
         <button onClick={onClose} aria-label="Close plan">
           <X size={14} />
@@ -19,7 +21,7 @@ export function PlanPanel({ onClose }: Props) {
       </header>
 
       <div className="plan-steps">
-        {opportunityDemo.plan.map((step, index) => (
+        {opportunity.plan.map((step, index) => (
           <article className="plan-step" key={step.title}>
             <span>{index + 1}</span>
             <div>
@@ -33,12 +35,11 @@ export function PlanPanel({ onClose }: Props) {
       <div className="mah-handoff">
         <CalendarClock size={14} />
         <div>
-          <strong>MAH 接入位</strong>
-          <p>{opportunityDemo.nextAction}</p>
+          <strong>{isActionable ? "Ready for the next step" : "Waiting for approval"}</strong>
+          <p>{isActionable ? opportunity.nextAction : "Approve the opportunity first, then send it to Grill-me for requirement breakdown."}</p>
         </div>
         <ArrowRight size={14} />
       </div>
     </section>
   );
 }
-

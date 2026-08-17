@@ -1,7 +1,9 @@
 export type OpportunityDemo = {
+  foundSignal: string;
   petLine: string;
   title: string;
   routeMapStatus: string;
+  confirmedStatus: string;
   nextAction: string;
   plan: Array<{
     title: string;
@@ -9,23 +11,57 @@ export type OpportunityDemo = {
   }>;
 };
 
-export const opportunityDemo: OpportunityDemo = {
-  petLine: "我找到一个需要多 agent 持续推进的赚钱项目。",
-  title: "AI 资料包小店",
-  routeMapStatus: "已生成 MAH 路线图",
-  nextAction: "下一步：让 MAH 分配研究、制作、发布和复盘任务",
-  plan: [
-    {
-      title: "找需求",
-      detail: "研究最近有人愿意付费的资料包方向，选一个最小可卖主题。",
-    },
-    {
-      title: "做产品",
-      detail: "让写作、设计和 Codex 分别完成内容、封面、页面和下载包。",
-    },
-    {
-      title: "跑反馈",
-      detail: "发布到一个渠道，定时收集点击、收藏、咨询和购买信号。",
-    },
-  ],
-};
+const sharedPlan: OpportunityDemo["plan"] = [
+  {
+    title: "Pet scouts",
+    detail: "Collect signals from OSS, content, services, and template markets, then bring back the most promising clue.",
+  },
+  {
+    title: "Owner approves",
+    detail: "Decide whether this is worth acting on: clear demand, small first version, and enough moving parts for agents.",
+  },
+  {
+    title: "Grill-me breaks it down",
+    detail: "Stress-test the opportunity into target users, pain points, deliverables, non-goals, and first-version scope.",
+  },
+  {
+    title: "Move into MAH",
+    detail: "Put the approved scope into a route map and assign research, creation, launch, and review tasks.",
+  },
+  {
+    title: "Ship and self-evolve",
+    detail: "Use feedback to keep adjusting the next step. This is not a one-time suggestion; it keeps moving.",
+  },
+];
+
+export const opportunityDemos: OpportunityDemo[] = [
+  {
+    foundSignal: "Ding! I brought back something that might make money.",
+    petLine: "This is not an idea bookmark. It is a small experiment worth grilling, planning, and executing.",
+    title: "AI Resource Pack Shop",
+    routeMapStatus: "Waiting for owner approval",
+    confirmedStatus: "Approved: worth acting on",
+    nextAction: "Next: send it to Grill-me, then turn the result into a MAH route map.",
+    plan: sharedPlan,
+  },
+  {
+    foundSignal: "I found another lead. This one smells like paid demand.",
+    petLine: "Creators keep asking for repeatable launch assets. This could become a tiny paid workflow.",
+    title: "Launch Kit Generator",
+    routeMapStatus: "Waiting for owner approval",
+    confirmedStatus: "Approved: worth acting on",
+    nextAction: "Next: let Grill-me pressure-test the buyer, scope, and first launch kit.",
+    plan: sharedPlan,
+  },
+  {
+    foundSignal: "New clue! I found a boring task people might pay to avoid.",
+    petLine: "This is a service-style automation opportunity: small, useful, and easy to test with one niche.",
+    title: "Invoice Cleanup Assistant",
+    routeMapStatus: "Waiting for owner approval",
+    confirmedStatus: "Approved: worth acting on",
+    nextAction: "Next: use Grill-me to narrow the buyer and hand the smallest workflow to MAH.",
+    plan: sharedPlan,
+  },
+];
+
+export const opportunityDemo = opportunityDemos[0];
