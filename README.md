@@ -1,10 +1,10 @@
 # Opportunity Pet
 
-> What if your desktop pet did not just sit there, but started looking for ways to pay you back?
+> Your pet is done lying around at home. Now it wants to make money and take care of you.
 
-Opportunity Pet is a desktop pet that looks for small, realistic money-making experiments for its owner.
+Opportunity Pet is a desktop pet that scouts for small, realistic money-making experiments for its owner.
 
-You import your own pet, keep it on your desktop, and let it surface one practical opportunity at a time: a tiny product, a resource pack, a service workflow, a content experiment, or another small project that might be worth testing.
+You import your own pet, keep it on your desktop, and let it bring back one practical opportunity at a time: a tiny product, a resource pack, a service workflow, a content experiment, or another small project that might be worth testing.
 
 This is not a normal web app. The browser view is only for development. The intended product experience is a small desktop pet that stays on the user's screen.
 
