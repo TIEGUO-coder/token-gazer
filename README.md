@@ -1,8 +1,10 @@
 # Opportunity Pet
 
-> Your desktop pet finds money-making opportunities, turns them into plans, and hands the work to MAH.
+> What if your desktop pet did not just sit there, but started looking for ways to pay you back?
 
-Opportunity Pet is a desktop assistant built from a pet-like companion interface. It is designed as an entry point for MAH: the pet helps the user notice a small earning opportunity, the user approves it, and the idea is converted into a route map that MAH can keep executing.
+Opportunity Pet is a desktop pet that looks for small, realistic money-making experiments for its owner.
+
+You import your own pet, keep it on your desktop, and let it surface one practical opportunity at a time: a tiny product, a resource pack, a service workflow, a content experiment, or another small project that might be worth testing.
 
 This is not a normal web app. The browser view is only for development. The intended product experience is a small desktop pet that stays on the user's screen.
 
@@ -19,13 +21,12 @@ import my pet
 -> create my desktop assistant
 -> discover a money-making opportunity
 -> review the plan
--> send it to MAH route map
--> let MAH keep pushing the project
+-> keep pushing the project with an execution system
 ```
 
 The pet is the emotional interface.  
 The opportunity engine is the radar.  
-MAH is the execution layer.
+The execution layer turns the idea into next actions.
 
 ## Demo Flow
 
@@ -34,9 +35,7 @@ MAH is the execution layer.
 3. The pet surfaces one practical money-making opportunity.
 4. The user clicks `查看计划`.
 5. The app opens a simple plan with scope, steps, and next action.
-6. The plan is prepared to become a MAH route map.
-
-![Opportunity Pet plan](docs/assets/profit-pet-plan-wide.png)
+6. The plan can later be handed to MAH as a route map.
 
 ## Why This Leads To MAH
 
