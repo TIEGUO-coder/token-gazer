@@ -1,34 +1,19 @@
 import { convertFileSrc, invoke } from "@tauri-apps/api/core";
 import { getCurrentWindow } from "@tauri-apps/api/window";
+import { ListChecks } from "lucide-react";
 import type { MouseEvent } from "react";
-import { formatCompactUsd, formatUsd } from "../lib/money";
-import { paybackCopy } from "../lib/paybackCopy";
-import { bestIndividualPaybackRatio } from "../lib/paybackSelection";
-import { moodFromPaybackRatio } from "../lib/petState";
-import type { UsageSummary } from "../types";
-import petCat from "../assets/pet-cat-complete-v2-cleaner.png";
+import { opportunityDemo } from "../lib/opportunityDemo";
+import tieguo from "../assets/tieguo-desktop-pet.png";
 
 type Props = {
-  summaries: UsageSummary[];
   petImagePath?: string;
+  importedPetImage?: string;
+  onOpenPlan: () => void;
 };
 
-function agentName(agent: string): string {
-  if (agent === "codex") return "Codex";
-  if (agent === "claude") return "Claude Code";
-  return agent;
-}
-
-function costLabel(summary: UsageSummary): string {
-  if (summary.costMode === "disabled") return "仅统计价值";
-  const value = summary.monthlyCostUsd > 0 ? `${formatUsd(summary.monthlyCostUsd)}/月` : "未设置金额";
-  return summary.costMode === "api" ? `API预算 ${value}` : `目标 ${value}`;
-}
-
-export function FloatingPet({ summaries, petImagePath }: Props) {
-  const ratio = bestIndividualPaybackRatio(summaries);
-  const mood = moodFromPaybackRatio(ratio);
-  const petImageSrc = petImagePath ? convertFileSrc(petImagePath) : petCat;
+export function FloatingPet({ petImagePath, importedPetImage, onOpenPlan }: Props) {
+  const mood = "ready";
+  const petImageSrc = importedPetImage ?? (petImagePath ? convertFileSrc(petImagePath) : tieguo);
   const startDrag = async (event: MouseEvent<HTMLDivElement>) => {
     if (event.button !== 0) return;
     event.preventDefault();
@@ -41,39 +26,21 @@ export function FloatingPet({ summaries, petImagePath }: Props) {
   };
 
   return (
-    <section className={`pet-shell mood-${mood}`} aria-label="AI ROI pet">
+    <section className={`pet-shell mood-${mood}`} aria-label="Profit Pet">
       <div className="pet-body" data-tauri-drag-region onMouseDown={startDrag}>
-        <img className="pet-image" data-tauri-drag-region src={petImageSrc} alt="AI ROI pet" draggable={false} />
+        <img className="pet-image" data-tauri-drag-region src={petImageSrc} alt="Profit Pet" draggable={false} />
       </div>
       <div className="pet-hover-card" role="status">
-        <div className="pet-agent-list">
-          {summaries.length === 0 ? (
-            <span className="empty-agent-line">还没有发现本地用量</span>
-          ) : (
-            summaries.map((summary) => {
-              const agentCopy = paybackCopy(summary.apiValueUsd, summary.monthlyCostUsd);
-              const cappedAgentPercent = Math.min(100, Math.max(0, agentCopy.percent));
-              return (
-                <article className="pet-agent-row" key={summary.agent}>
-                  <div className="pet-agent-main">
-                    <strong>{agentName(summary.agent)}</strong>
-                    <span>{costLabel(summary)}</span>
-                  </div>
-                  <div className="pet-agent-value">
-                    <strong>{formatCompactUsd(summary.apiValueUsd)}</strong>
-                    <span>{agentCopy.title}</span>
-                  </div>
-                  {summary.monthlyCostUsd > 0 ? (
-                    <div className="agent-payback-track" aria-hidden="true">
-                      <span style={{ width: `${cappedAgentPercent}%` }} />
-                    </div>
-                  ) : null}
-                  <span className="agent-payback-line">{agentCopy.subtitle}</span>
-                </article>
-              );
-            })
-          )}
-        </div>
+        <article className="opportunity-card">
+          <span className="opportunity-kicker">铁锅发现机会</span>
+          <strong>{opportunityDemo.title}</strong>
+          <p>{opportunityDemo.petLine}</p>
+          <div className="route-map-pill">{opportunityDemo.routeMapStatus}</div>
+          <button className="plan-open-button" onClick={onOpenPlan}>
+            <ListChecks size={13} />
+            <span>查看计划</span>
+          </button>
+        </article>
       </div>
     </section>
   );
